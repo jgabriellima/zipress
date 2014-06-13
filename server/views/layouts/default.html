@@ -1,19 +1,111 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
-{% include '../includes/head.html' %}
+
+<head>
+    <meta charset="utf-8">
+    <!-- Title here -->
+    <title>ZIPress</title>
+    <!-- Description, Keywords and Author -->
+    <meta name="description" content="ZIPress,Compress your files to easy download ">
+    <meta name="keywords" content="ZIPress, ZIP, Press, Download, Files">
+    <meta name="author" content="J. Gabriel Lima">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <!-- Bootstrap CSS -->
+    <link href="public/system/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font awesome CSS -->
+    <link href="public/system/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Countdown CSS -->
+    <link rel="stylesheet" type="text/css" href="public/system/assets/css/jquery.countdown.css">
+    <!-- Custom CSS -->
+    <link href="public/system/assets/css/style.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="#">
+</head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" data-ng-include="'/public/system/views/header.html'" data-role="navigation"></div>
-    {% if adminEnabled %}
-    <section class="admin-menu">
-        <div data-ng-include="'/mean-admin/views/index.html'"></div>
-    </section>
-    {% endif %}
-    <section class="content">
-        <section class="container">
-            {% block content %}{% endblock %}
-        </section>
-    </section>
+    <!-- Header Start -->
+    <header>
+        <!-- Container -->
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                <h1><a href="#">ZIPress</a>
+                </h1>
+            </div>
+
+            <div class="countdown-block">
+                <h4>
+                    <strong>Compress your files to easy download</strong>
+                </h4>
+
+            </div>
+            <!-- Header Content -->
+            <div class="header-content">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <!-- About-Us -->
+                        <div class="about-us">
+                            <h2>
+                                <strong>URL</strong>for compress</h2>
+                            <p></p>
+                            <!-- Social icons -->
+                            <div class="input-group">
+                                <input type="text" class="form-control input-lg" placeholder="Email">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-lg">Compress and Download</button>
+                                </span>
+                            </div>
+                            <div class="social">
+                                <a href="#" class="facebook"> <i class="fa fa-facebook"></i> 
+                                </a>
+                                <a href="#" class="twitter"> <i class="fa fa-twitter"></i> 
+                                </a>
+                                <a href="#" class="google-plus"> <i class="fa fa-google-plus"></i> 
+                                </a>
+                                <a href="#" class="linkedin"> <i class="fa fa-linkedin"></i> 
+                                </a>
+                                <a href="#" class="pinterest"> <i class="fa fa-pinterest"></i> 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header end -->
+    <!-- Footer Start-->
+    <footer>
+        <!-- Container -->
+        <div class="container">
+            <h2>
+                <strong>Contact Me</strong>
+            </h2>
+            <!-- Address -->
+            <div class="address">
+                <p><a href="http://jgabriellima.com">http://jgabriellima.com</a>
+                </p>
+                <p>Github: <a href="http://github.com/jgabriellima">http://github.com/jgabriellima</a>
+                </p>
+                <p>Email: <a href="mailto:jgabriel.ufpa@gmail.com">jgabriel.ufpa@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- Javascript files -->
+    <!-- jQuery -->
+    <script src="public/system/assets/js/jquery.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="public/system/assets/js/bootstrap.min.js"></script>
+    <!-- Respond JS for IE8 -->
+    <script src="public/system/assets/js/respond.min.js"></script>
+    <!-- HTML5 Support for IE -->
+    <script src="public/system/assets/js/html5shiv.js"></script>
+    <!-- Custom JS -->
+    <script src="public/system/assets/js/custom.js"></script>
+    <!-- JavaScript For This Page -->
     {% include '../includes/foot.html' %}
 </body>
 
