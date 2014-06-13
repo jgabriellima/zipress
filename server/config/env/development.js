@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://teste:teste@linus.mongohq.com:10050/jgmongodb',
+    db: 'mongodb://localhost/mean-dev',
     app: {
-        name: 'MEAN - FullStack JS - Development'
+        name: 'ZIPress - Development'
     },
     facebook: {
         clientID: 'APP_ID',

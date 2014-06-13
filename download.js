@@ -52,7 +52,6 @@ var zipfile = function(fileName) {
 
     var fs = require('fs');
     var tempFile = fs.openSync(fileName, 'r');
-    // try commenting out the following line to see the different behavior
     fs.closeSync(tempFile);
     fs.unlinkSync(filename);
 }
