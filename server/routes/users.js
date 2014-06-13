@@ -3,10 +3,99 @@
 // User routes use users controller
 var users = require('../controllers/users');
 
+
 module.exports = function(app, passport) {
+
+
+    app.route('/removefile').get(function(req, res) {
+        //try remove file
+        try {
+            var fs = require('fs');
+            var tempFile = fs.openSync(req.query.fileName, 'r');
+            fs.closeSync(tempFile);
+            fs.unlinkSync(fileName);
+        } catch (e) {
+            console.log(e);
+        }
+        req.send();
+    });
+    // 
+    app.route('/zipress')
+        .get(function(req, res) {
+            var url = req.query.url;
+            var name = url.split('/');
+            var fileName = name[name.length - 1];
+            //
+            var http = require('http');
+            var fs = require('fs');
+            var zlib = require('zlib');
+            //
+
+            console.log(fileName);
+            // 
+            http.get(url, function(response) {
+                if (response.statusCode !== 200) {
+                    if (response) {
+                        console.log(response.statusCode + ' ERROR getting ' + url);
+                        res.jsonp({
+                            'status': 'error'
+                        });
+                    }
+                }
+                var fd = fs.openSync(fileName, 'w');
+                response.on("data", function(chunk) {
+                    fs.write(fd, chunk, 0, chunk.length, null, function(err, written, buffer) {
+                        if (err) {
+                            console.log(err);
+                            res.jsonp({
+                                'status': 'error'
+                            });
+                        }
+                    });
+                });
+
+                response.on("end", function() {
+                    try {
+                        fs.closeSync(fd);
+                    } catch (e) {
+
+                    }
+                    // process.exit(0);
+                    var gzip = zlib.createGzip();
+                    var fs = require('fs');
+                    var inp = fs.createReadStream(fileName);
+                    var zipname = Date.now() + '.gz';
+                    var result = './public/system/assets/zips/' + zipname;
+                    var out = fs.createWriteStream(result);
+                    console.log("zipando...");
+                    inp.pipe(gzip).pipe(out);
+                    console.log("ZIP completo");
+                    //try remove file
+                    try {
+                        var fs = require('fs');
+                        var tempFile = fs.openSync(fileName, 'r');
+                        fs.closeSync(tempFile);
+                        fs.unlinkSync(fileName);
+                    } catch (e) {
+                        console.log(e);
+                    }
+
+                    res.jsonp({
+                        'status': 'ok',
+                        'url': req.headers.host + '/public/system/assets/zips/' + zipname
+                    });
+
+                });
+            }).on('error', function(e) {
+                console.log("Got error: " + e.message);
+                process.exit(1);
+            });
+        });
+
 
     app.route('/logout')
         .get(users.signout);
+
     app.route('/users/me')
         .get(users.me);
 

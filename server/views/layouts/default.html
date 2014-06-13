@@ -27,7 +27,7 @@
     <!-- Header Start -->
     <header>
         <!-- Container -->
-        <div class="container">
+        <div class="container" ng-controller="IndexController">
             <!-- Logo -->
             <div class="logo">
                 <h1><a href="#">ZIPress</a>
@@ -41,21 +41,27 @@
 
             </div>
             <!-- Header Content -->
-            <div class="header-content">
+            <div class="header-content" data-ng-init="init()">
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <!-- About-Us -->
+                         <div id="loading" class="alert alert-info col-md-3" style="float:right;display:none">
+                                Aguarde! Processando... <img src="/public/system/assets/img/load.gif" alt="">
+                            </div>
                         <div class="about-us">
                             <h2>
                                 <strong>URL</strong>for compress</h2>
+
                             <p></p>
                             <!-- Social icons -->
-                            <div class="input-group">
-                                <input type="text" class="form-control input-lg" placeholder="Email">
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-lg">Compress and Download</button>
-                                </span>
-                            </div>
+                            <form method="get" ng-submit="zipress()" accept-charset="utf-8">
+                                <div class="input-group">
+                                    <input type="text" ng-model="file.url" class="form-control input-lg" placeholder="Email">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-lg">Compress and Download</button>
+                                    </span>
+                                </div>
+                            </form>
                             <div class="social">
                                 <a href="#" class="facebook"> <i class="fa fa-facebook"></i> 
                                 </a>
@@ -68,6 +74,7 @@
                                 <a href="#" class="pinterest"> <i class="fa fa-pinterest"></i> 
                                 </a>
                             </div>
+                          
                         </div>
                     </div>
                 </div>
