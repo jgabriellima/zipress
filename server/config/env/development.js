@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://localhost/mean-dev',
+    db: 'mongodb://zipresstest:zipresstest@kahana.mongohq.com:10071/zipress',
     app: {
         name: 'ZIPress - Development - '
     },
